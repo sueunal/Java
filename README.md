@@ -5,18 +5,37 @@
 
 
 
-
 ### this()와 this.의 차이
 
 
 ```markdown
-Syntax highlighted code block
+class ConstructExample{
+   int x ;
+  ConstructExample(String a){
+      this(1);
+      System.out.println("생성자 호출입니다");
+   }
+   ConstructExample(int B){
+       System.out.println("A");
+   }
+   public void setX(int x){this.x = x;}
+   public int getX(){
+      return x;
+   }
 
-- Bulleted
-- List
+   public static void main(String[] args){
+      ConstructExample a = new ConstructExample("H");
+      int n = a.getX();
+      System.out.println(n);
+   }
+}
 
-1. Numbered
-2. List
+1. this()는 같은 클래스 내에서 서로 다른 생성자를 호출할 때 쓰인다.
+- ConstructExample(String a){생략}에서 this(1)를 사용하는 부분이 있는데 
+- 여기서는 자기자신이 아닌 int 형을 매개변수로 받는 ConstructExample(int B){생략}을 호출하는 것 이다.
+2. this.은 public void setX(int x){this.x = x;}의
+- global 변수인 int x와 매개변수로 받은 x를 구분지어주기 위하여 사용한다.
+즉 SetX(int x)의 매소드에서 this.x는 글로벌 변수 x이다.
 
 **Bold** and _Italic_ and `Code` text
 
